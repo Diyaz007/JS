@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Регистрация и Авторизация</title>
+  <title>Студенческий портал</title>
+  <link rel="stylesheet" href="design.css">
 </head>
 <body>
 <h2>Регистрация</h2>
-<input type="text" id="regUsername" placeholder="Введите имя пользователя">
+<input type="text" id="regName" placeholder="Введите имя">
+<input type="text" id="regSurname" placeholder="Введите фамилию">
+<input type="text" id="regStudentID" placeholder="Введите студенческий номер">
+<input type="email" id="regEmail" placeholder="Введите email">
 <input type="password" id="regPassword" placeholder="Введите пароль">
+<input type="date" id="regDOB" placeholder="Дата рождения">
+<input type="number" id="regAge" placeholder="Возраст">
+<select id="regCourse">
+  <option value="it">IT</option>
+  <option value="business">Бизнес</option>
+  <option value="design">Дизайн</option>
+</select>
+<input type="radio" name="gender" value="male"> Мужской
+<input type="radio" name="gender" value="female"> Женский
+<input type="checkbox" id="regAgreement"> Я согласен с условиями
 <button onclick="register()">Зарегистрироваться</button>
 <script src="reglog.js"></script>
 </body>
 </html>
+
