@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+h3 {
+    color: #ffcc00;
+}
+
+form {
+    background: #2a2a3b;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 0 70px rgba(255, 204, 0, 0.5);
+    margin-top: 30px;
+}
+
+textarea {
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #3a3a4a;
+    color: #fff;
+    resize: none;
+}
+
+input[type="button"] {
+    background-color: #ffcc00;
+    color: #1e1e2e;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input[type="button"]:hover {
+    background-color: #e6b800;
+}
+
+.table_morze {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: #2a2a3b;
+    color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+}
+
+.table_morze th, .table_morze td {
+    border: 1px solid #ffcc00;
+    padding: 10px;
+    text-align: center;
+}
+
+.table_morze th {
+    background-color: #ffcc00;
+    color: #1e1e2e;
+}
+
+.table_morze td:hover {
+    background: #ffcc00;
+    color: #1e1e2e;
+    cursor: pointer;
+}
+
+input[type="radio"] + label {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 3px 30px;
+    border-radius: 5px;
+    transition: background 0.3s;
+
+
+}
+
+input[type="radio"]:checked + label {
+    background: #ffcc00;
+    color: #1e1e2e;
+    font-size: 20px;
+
+}

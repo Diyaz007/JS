@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Азбука Морзе</title>
+    <link rel="stylesheet" href="morzestyle.css">
+</head>
+<body>
+
+<form id="morze" name="morze">
+
+    <h3>Выберите язык и направление конвертирования:</h3>
+
+    <p><input type="radio" name="napravlenie" id="text2morze" tabindex="1" checked/> <label for="text2morze"
+                                                                                            title="Русские и латинские буквы можно вводить в любом регистре (и большие и маленькие). Также поддерживаются цифры, знаки пунктуации и специальные символы: . , : ; ( ) ' &rdquo; — / ? ! = @ & + _ $">Текст
+        в код Морзе</label><br/>
+
+        <input type="radio" name="napravlenie" id="morze2rus" tabindex="2"/> <label for="morze2rus"
+                                                                                    title="Точки можно вводить вводите символом точки, запятой, плюсом или знаком умножения (. , + *) Тире минусом (дефисом). Буквы разделяйте одним пробелом, а слова - двумя пробелами.">Код
+            Морзе в кириллицу</label><br/>
+
+        <input type="radio" name="napravlenie" id="morze2lat" tabindex="3"/> <label for="morze2lat"
+                                                                                    title="Точки можно вводить вводите символом точки, запятой, плюсом или знаком умножения (. , + *) Тире минусом (дефисом). Буквы разделяйте одним пробелом, а слова - двумя пробелами.">Код
+            Морзе в латиницу</label></p>
+
+    <h3>Введите исходный текст или код Морзе и нажмите "Конвертировать"</h3>
+
+    <p>Исходный текст или код Морзе<br/>
+
+        <textarea class="download" rows="3" cols="62" name="input_text" id="input_text" tabindex="4"
+                  autofocus></textarea></p>
+
+    <br class="clear_both"/>
+
+    <p>Результат конвертирования<br/>
+        <textarea class="download" rows="4" cols="62" name="output_text" id="output_text" tabindex="5"
+                  readonly></textarea></p>
+
+    <br class="clear_both"/>
+
+
+    <div class="download"><input type="button" value="Конвертировать" tabindex="6" onclick="convert()"/></div>
+</form>
+
+<br class="clear_both"/>
+
+<!--// Форма ввода -->
+
+<div><br/>
+    <div id="first-table">
+        <table class="table_morze">
+            <tr>
+                <th>Русский<br/>символ</th>
+                <th>Латинский<br/>символ</th>
+                <th>Код<br/>Морзе</th>
+            </tr>
+            <tr>
+                <td onclick="i_s('А')">А</td>
+                <td onclick="i_s('A')">A</td>
+                <td onclick="i_s('•− ')">•−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Б')">Б</td>
+                <td onclick="i_s('B')">B</td>
+                <td onclick="i_s('−••• ')">−•••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('В')">В</td>
+                <td onclick="i_s('W')">W</td>
+                <td onclick="i_s('•−− ')">•−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Г')">Г</td>
+                <td onclick="i_s('G')">G</td>
+                <td onclick="i_s('−−• ')">−−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Д')">Д</td>
+                <td onclick="i_s('D')">D</td>
+                <td onclick="i_s('−•• ')">−••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Е')">Е и Ё</td>
+                <td onclick="i_s('E')">E</td>
+                <td onclick="i_s('• ')">•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ж')">Ж</td>
+                <td onclick="i_s('V')">V</td>
+                <td onclick="i_s('•••− ')">•••−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('З')">З</td>
+                <td onclick="i_s('Z')">Z</td>
+                <td onclick="i_s('−−•• ')">−−••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('И')">И</td>
+                <td onclick="i_s('I')">I</td>
+                <td onclick="i_s('•• ')">••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Й')">Й</td>
+                <td onclick="i_s('J')">J</td>
+                <td onclick="i_s('•−−− ')">•−−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('К')">К</td>
+                <td onclick="i_s('K')">K</td>
+                <td onclick="i_s('−•− ')">−•−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Л')">Л</td>
+                <td onclick="i_s('L')">L</td>
+                <td onclick="i_s('•−•• ')">•−••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('М')">М</td>
+                <td onclick="i_s('M')">M</td>
+                <td onclick="i_s('−− ')">−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Н')">Н</td>
+                <td onclick="i_s('N')">N</td>
+                <td onclick="i_s('−• ')">−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('О')">О</td>
+                <td onclick="i_s('O')">O</td>
+                <td onclick="i_s('−−− ')">−−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('П')">П</td>
+                <td onclick="i_s('P')">P</td>
+                <td onclick="i_s('•−−• ')">•−−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Р')">Р</td>
+                <td onclick="i_s('R')">R</td>
+                <td onclick="i_s('•−• ')">•−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('С')">С</td>
+                <td onclick="i_s('S')">S</td>
+                <td onclick="i_s('••• ')">•••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Т')">Т</td>
+                <td onclick="i_s('T')">T</td>
+                <td onclick="i_s('− ')">−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('У')">У</td>
+                <td onclick="i_s('U')">U</td>
+                <td onclick="i_s('••− ')">••−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ф')">Ф</td>
+                <td onclick="i_s('F')">F</td>
+                <td onclick="i_s('••−• ')">••−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Х')">Х</td>
+                <td onclick="i_s('H')">H</td>
+                <td onclick="i_s('•••• ')">••••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ц')">Ц</td>
+                <td onclick="i_s('C')">C</td>
+                <td onclick="i_s('−•−• ')">−•−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ч')">Ч</td>
+                <td onclick="i_s('Ö')">Ö</td>
+                <td onclick="i_s('−−−• ')">−−−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ш')">Ш</td>
+                <td onclick="i_s('CH')">CH</td>
+                <td onclick="i_s('−−−− ')">−−−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Щ')">Щ</td>
+                <td onclick="i_s('Q')">Q</td>
+                <td onclick="i_s('−−•− ')">−−•−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ъ')">Ъ</td>
+                <td onclick="i_s('Ñ')">Ñ</td>
+                <td onclick="i_s('−−•−− ')">−−•−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ы')">Ы</td>
+                <td onclick="i_s('Y')">Y</td>
+                <td onclick="i_s('−•−− ')">−•−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ь')">Ь</td>
+                <td onclick="i_s('X')">X</td>
+                <td onclick="i_s('−••− ')">−••−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Э')">Э</td>
+                <td onclick="i_s('É')">É</td>
+                <td onclick="i_s('••−•• ')">••−••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ю')">Ю</td>
+                <td onclick="i_s('Ü')">Ü</td>
+                <td onclick="i_s('••−− ')">••−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Я')">Я</td>
+                <td onclick="i_s('Ä')">Ä</td>
+                <td onclick="i_s('•−•− ')">•−•−</td>
+            </tr>
+        </table>
+    </div>
+    <div id="second-table">
+        <table class="table_morze">
+            <tr>
+                <th>Русский<br/>символ</th>
+                <th>Латинский<br/>символ</th>
+                <th>Код<br/>Морзе</th>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('1')">1</td>
+                <td onclick="i_s('•−−−− ')">•−−−−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('2')">2</td>
+                <td onclick="i_s('••−−− ')">••−−−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('3')">3</td>
+                <td onclick="i_s('•••−− ')">•••−−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('4')">4</td>
+                <td onclick="i_s('••••− ')">••••−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('5')">5</td>
+                <td onclick="i_s('••••• ')">•••••</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('6')">6</td>
+                <td onclick="i_s('−•••• ')">−••••</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('7')">7</td>
+                <td onclick="i_s('−−••• ')">−−•••</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('8')">8</td>
+                <td onclick="i_s('−−−•• ')">−−−••</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('9')">9</td>
+                <td onclick="i_s('−−−−• ')">−−−−•</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('0')">0</td>
+                <td onclick="i_s('−−−−− ')">−−−−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('.')">.</td>
+                <td onclick="i_s('')"></td>
+                <td onclick="i_s('•••••• ')">••••••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s(',')">,</td>
+                <td onclick="i_s('.')">.</td>
+                <td onclick="i_s('•−•−•− ')">•−•−•−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('!')">!</td>
+                <td onclick="i_s(',')">,</td>
+                <td onclick="i_s('−−••−− ')">−−••−−</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('')"></td>
+                <td onclick="i_s('!')">!</td>
+                <td onclick="i_s('−•−•−− ')">−•−•−−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('?')">?</td>
+                <td onclick="i_s('••−−•• ')">••−−••</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('&apos;')">&apos;</td>
+                <td onclick="i_s('•−−−−• ')">•−−−−•</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('&quot;')">&quot;</td>
+                <td onclick="i_s('•−••−• ')">•−••−•</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s(';')">;</td>
+                <td onclick="i_s('−•−•−• ')">−•−•−•</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s(':')">:</td>
+                <td onclick="i_s('−−−••• ')">−−−•••</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('—')">—</td>
+                <td onclick="i_s('−••••− ')">−••••−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('+')">+</td>
+                <td onclick="i_s('•−•−• ')">•−•−•</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('=')">=</td>
+                <td onclick="i_s('−•••− ')">−•••−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('_')">_ (подчёркивание)</td>
+                <td onclick="i_s('••−−•− ')">••−−•−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('/')">/</td>
+                <td onclick="i_s('−••−• ')">−••−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('')"></td>
+                <td onclick="i_s('(')">(</td>
+                <td onclick="i_s('−•−−• ')">−•−−•</td>
+            </tr>
+            <tr>
+                <td>( или )</td>
+                <td onclick="i_s(')')">)</td>
+                <td onclick="i_s('−•−−•− ')">−•−−•−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('&')">&</td>
+                <td onclick="i_s('•−••• ')">•−•••</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('$')">$</td>
+                <td onclick="i_s('•••−••− ')">•••−••−</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="i_s('@')">@</td>
+                <td onclick="i_s('•−−•−• ')">•−−•−•</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Ошибка')">Ошибка</td>
+                <td onclick="i_s('Error')">Error</td>
+                <td onclick="i_s('•••••••• ')">••••••••</td>
+            </tr>
+            <tr>
+                <td onclick="i_s('Конец связи')">Конец связи</td>
+                <td onclick="i_s('End contact')">End contact</td>
+                <td onclick="i_s('••−•− ')">••−•−</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br/><br/>
+<script src="app.js"></script>
+
+</body>
+</html>
